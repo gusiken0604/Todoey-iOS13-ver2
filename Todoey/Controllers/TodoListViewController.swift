@@ -100,7 +100,7 @@ class TodoListViewController: SwipeTableViewController {
     }
     
     //MARK: - Add New Items
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addButtonPrresed(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
@@ -126,6 +126,10 @@ class TodoListViewController: SwipeTableViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+//    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+//        
+//
+//    }
     
     //Mark - Model Manipulation Methods
     func loadItems() {

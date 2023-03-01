@@ -13,14 +13,16 @@ import ChameleonFramework
 class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm()
+    
+    // Potential namespace clash with OpaquePointer (same name of Category)
+    // Use correct type from dropdown or add backticks to fix e.g., var categories = [`Category`]()
     var categories: Results<Category>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadCategories()
         tableView.separatorStyle = .none
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +81,25 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
     
+    //Mark: - Add New Categories
+//    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+//        
+//        var textField = UITextField()
+//        let alert = UIAlertController(title: "Add a New Cateogry", message: "", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+//            let newCategory = Category()
+//            newCategory.name = textField.text!
+//            newCategory.colour = UIColor.randomFlat().hexValue()
+//            self.save(category: newCategory)
+//        }
+//        
+//        alert.addAction(action)
+//        alert.addTextField { (field) in
+//            textField = field
+//            textField.placeholder = "Add a new category"
+//        }
+//        present(alert, animated: true, completion: nil)
+//    }
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add a New Cateogry", message: "", preferredStyle: .alert)
@@ -110,4 +131,6 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     
+    
 }
+
